@@ -1,0 +1,10 @@
+.vscode/
+.vs/
+build/
+
+src/
+
+*.o
+*.d
+*.i
+*.a
