@@ -2,8 +2,6 @@
 .vs/
 build/
 
-src/
-
 *.o
 *.d
 *.i

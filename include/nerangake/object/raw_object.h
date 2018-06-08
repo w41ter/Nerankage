@@ -9,11 +9,11 @@ namespace nrk {
 namespace object {
 
 #define IMPLICIT_CONSTRUCTORS(Class)          \
-    Class()             = default;            \
-    ~Class()            = default;            \
+    Class() = default;                        \
+    ~Class() = default;                       \
     Class(const Class&) = default;            \
     Class& operator=(const Class&) = default; \
-    Class(Class&&)                 = default; \
+    Class(Class&&) = default;                 \
     Class& operator=(Class&&) = default
 
 /**
@@ -41,21 +41,21 @@ namespace object {
 class RawObject {
 public:
     enum Tag {
-        kObject  = 0x00,
-        kFixnum  = 0x01, // 0000_0001
+        kObject = 0x00,
+        kFixnum = 0x01,  // 0000_0001
         kSpecial = 0x03, // 0000_0011
     };
 
     enum Special {
-        kNil   = 0x03, // 0000_0011
-        kTrue  = 0x06, // 0000_0111
+        kNil = 0x03,   // 0000_0011
+        kTrue = 0x06,  // 0000_0111
         kFalse = 0x0B, // 0000_1011
     };
 
     enum {
-        kTagMask      = 0x03, // 0000_0011
-        kSpecialMask  = 0x0F, // 0000_1111
-        kTagShift     = 2,
+        kTagMask = 0x03,     // 0000_0011
+        kSpecialMask = 0x0F, // 0000_1111
+        kTagShift = 2,
         kSpecialShift = 4,
     };
 
@@ -160,7 +160,7 @@ public:
             -536870913 <= value && 536870912 >= value &&
             "integer value out of range");
 
-        int32_t data      = (value << RawObject::kTagShift) & kFixnum;
+        int32_t data = (value << RawObject::kTagShift) & kFixnum;
         RawObject* object = RawObject::From(static_cast<uintptr_t>(data));
         return object->As<Fixnum>();
     }
@@ -173,7 +173,7 @@ public:
     IMPLICIT_CONSTRUCTORS(Boolean);
 
     static Boolean* Create(bool value) {
-        uintptr_t data    = static_cast<uintptr_t>(value ? kTrue : kFalse);
+        uintptr_t data = static_cast<uintptr_t>(value ? kTrue : kFalse);
         RawObject* object = RawObject::From(data);
         return object->As<Boolean>();
     }
