@@ -5,10 +5,6 @@
 namespace nrk {
 namespace gc {
 
-enum class GCType {
-    Generation,
-};
-
 class GCInterface : public ObjectUser {
 public:
     typedef std::function<void(HeapObject **)> ProcessObjectCallback;
@@ -21,8 +17,6 @@ public:
     virtual void Push(HeapObject **) = 0;
     virtual HeapObject **Pop() = 0;
     virtual void WriteBarrier(HeapObject *, RawObject **, HeapObject *) = 0;
-
-    static GCInterface &Create(GCType type);
 
 protected:
     GCInterface() = default;

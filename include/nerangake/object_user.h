@@ -23,6 +23,8 @@ public:
     using String = object::String;
     using Vector = object::Vector;
     using UserClosure = object::UserClosure;
+
+	using UserDefFunc = object::UserDefFunc;
 };
 
 } // namespace nrk
