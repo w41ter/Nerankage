@@ -10,11 +10,6 @@
 
 namespace nrk {
 
-using gc::GCInterface;
-using memory::AllocatorInterface;
-using memory::RootObjectHolderInterface;
-using state::ExecutorInterface;
-
 class Context {
     Context() = default;
 
@@ -22,6 +17,11 @@ class Context {
     Context &operator=(const Context &) = delete;
 
 public:
+    using GCInterface = gc::GCInterface;
+    using AllocatorInterface = memory::AllocatorInterface;
+    using RootObjectHolderInterface = memory::RootObjectHolderInterface;
+    using ExecutorInterface = state::ExecutorInterface;
+
     typedef std::list<RootObjectHolderInterface *> RootObjectHolders;
     typedef RootObjectHolders::iterator iterator;
 
