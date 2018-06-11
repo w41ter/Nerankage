@@ -22,8 +22,7 @@ static const ObjectMethodTable *VTable() {
 
 Float *Float::Create(double val) {
     size_t size = sizeof(val);
-    HeapObject *obj = Allocate<HeapObject>(size);
-    Float *db = Cast<Float>(obj);
+    Float *db = Allocate<Float>(size);
 
     db->set_value(val);
     db->set_type(kFloat);
@@ -33,8 +32,7 @@ Float *Float::Create(double val) {
 
 Float *Float::CreateGlobal(double val) {
     size_t size = sizeof(val);
-    HeapObject *obj = Static<HeapObject>(size);
-    Float *db = Cast<Float>(obj);
+    Float *db = Allocate<Float>(size);
 
     db->set_value(val);
     db->set_type(kFloat);

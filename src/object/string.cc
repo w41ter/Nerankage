@@ -45,8 +45,7 @@ String *String::Create(const char *str, size_t length) {
     assert(str != nullptr && "nullptr exception.");
 
     size_t need_size = Size(length);
-    HeapObject *obj = Allocate<HeapObject>(need_size);
-    String *string = Cast<String>(obj);
+    String *string = Allocate<String>(need_size);
     Init(string, str, length);
     return string;
 }

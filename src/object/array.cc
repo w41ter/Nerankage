@@ -19,8 +19,7 @@ static const ObjectMethodTable *VTable() {
 
 Array *Array::Create(size_t size) {
     size_t need_size = Size(size);
-    HeapObject *obj = Allocate<HeapObject>(need_size);
-    Array *array = Cast<Array>(obj);
+    Array *array = Allocate<Array>(need_size);
     Init(array, size);
     return array;
 }
