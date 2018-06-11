@@ -3,7 +3,7 @@
 #include <functional>
 #include <type_traits>
 
-#include <nerangake/gc_interface.h>
+#include <nerangake/gc/gc_interface.h>
 #include <nerangake/object_user.h>
 
 namespace nrk {

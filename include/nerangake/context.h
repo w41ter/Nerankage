@@ -8,7 +8,7 @@
 #include <nerangake/memory/root_object_holder_interface.h>
 #include <nerangake/state/executor_interface.h>
 
-namespace nerankage {
+namespace nrk {
 
 using gc::GCInterface;
 using memory::AllocatorInterface;
@@ -96,4 +96,4 @@ private:
     RootObjectHolders root_object_holders_;
 };
 
-} // namespace nerankage
+} // namespace nrk
